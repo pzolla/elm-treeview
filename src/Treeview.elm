@@ -510,9 +510,9 @@ toggle key nodes =
 
 
 toggleItem : Key -> Node -> Node
-toggleItem key node =
+toggleItem key node1 =
     if nodeKey node == key then
-        toggleNode node
+        toggleNode node1
 
     else
         let
@@ -535,13 +535,13 @@ toggleAll =
 
 
 toggleAllItem : Node -> Node
-toggleAllItem node =
+toggleAllItem node2 =
     let
         children =
-            nodeChildren node
+            nodeChildren node2
                 |> Maybe.andThen (Just << List.map toggleAllItem)
     in
-    toggleNode node
+    toggleNode node2
         |> setNodeChildren children
 
 
@@ -580,8 +580,8 @@ viewSearch config =
 
 
 viewItem : Config -> Node -> H.Html Msg
-viewItem config node =
-    optional (nodeVisible node) (viewItem_ config node)
+viewItem config node3 =
+    optional (nodeVisible node3) (viewItem_ config node3)
 
 
 viewItem_ : Config -> Node -> H.Html Msg
