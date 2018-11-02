@@ -1,7 +1,7 @@
 module Example1 exposing (main)
 
+import Browser
 import Data exposing (model, styles)
-import Html
 import Treeview as T
 
 
@@ -12,7 +12,7 @@ config =
 
 main : Program Never T.Model T.Msg
 main =
-    Html.beginnerProgram
+    Browser.sandbox
         { model = model
         , view = T.view config
         , update = T.update

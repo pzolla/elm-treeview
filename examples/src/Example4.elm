@@ -47,7 +47,7 @@ viewToolbar tg =
 
 main : Program Never Model Msg
 main =
-    H.beginnerProgram
+    Browser.sandbox
         { model = model
         , view = view
         , update = update
