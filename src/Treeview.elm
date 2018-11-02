@@ -511,20 +511,20 @@ toggle key nodes =
 
 toggleItem : Key -> Node -> Node
 toggleItem key node1 =
-    if nodeKey node == key then
+    if nodeKey node1 == key then
         toggleNode node1
 
     else
         let
             children =
-                nodeChildren node
+                nodeChildren node1
         in
         case children of
             Nothing ->
-                node
+                node1
 
             Just c ->
-                setNodeChildren (Just (List.map (toggleItem key) c)) node
+                setNodeChildren (Just (List.map (toggleItem key) c)) node1
 
 
 {-| Toggle all items.
@@ -661,11 +661,13 @@ viewItem_ config (Node key title opt children) =
         H.li [ HA.class cl ] base
 
 
-onClickEvent : msg -> H.Attribute msg
 onClickEvent evt =
-    HE.onWithOptions "click"
-        { stopPropagation = True, preventDefault = True }
-        (Decode.succeed evt)
+    HE.custom "click" <|
+        Decode.succeed
+            { stopPropagation = True
+            , preventDefault = True
+            , message = evt
+            }
 
 
 
