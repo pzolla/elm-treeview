@@ -45,7 +45,7 @@ viewToolbar tg =
         [ H.button [ HE.onClick tg ] [ H.text "Toggle all" ]
         ]
 
-
+main : Program () Model Msg
 main =
     Browser.sandbox
         { init = model

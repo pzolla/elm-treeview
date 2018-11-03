@@ -13,7 +13,7 @@ config =
     in
     { d | search = { enable = True } }
 
-
+main : Program () T.Model T.Msg
 main =
     Browser.sandbox
         { init = model

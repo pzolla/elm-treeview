@@ -13,7 +13,7 @@ config =
     in
     { d | checkbox = { enable = True, multiple = True, cascade = True } }
 
-
+main : Program () T.Model T.Msg
 main =
     Browser.sandbox
         { init = model

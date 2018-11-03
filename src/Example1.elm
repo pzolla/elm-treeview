@@ -9,7 +9,7 @@ config : T.Config
 config =
     T.default styles
 
-
+main : Program () T.Model T.Msg
 main =
     Browser.sandbox
         { init = model
