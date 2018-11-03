@@ -1,6 +1,6 @@
 'use strict';
 
-require('../styles/treeview.scss');
+require('styles/treeview.scss');
 require('font-awesome/scss/font-awesome.scss');
 
 require('./src/Example1')

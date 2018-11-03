@@ -1,5 +1,6 @@
 module Example4 exposing (main)
 
+import Browser
 import Data exposing (model, styles)
 import Html as H
 import Html.Events as HE
@@ -45,10 +46,9 @@ viewToolbar tg =
         ]
 
 
-main : Program Never Model Msg
 main =
     Browser.sandbox
-        { model = model
+        { init = model
         , view = view
         , update = update
         }

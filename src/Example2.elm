@@ -1,4 +1,4 @@
-module Example3 exposing (main)
+module Example2 exposing (main)
 
 import Browser
 import Data exposing (model, styles)
@@ -11,13 +11,12 @@ config =
         d =
             T.default styles
     in
-    { d | checkbox = { enable = True, multiple = True, cascade = True } }
+    { d | search = { enable = True } }
 
 
-main : Program Never T.Model T.Msg
 main =
     Browser.sandbox
-        { model = model
+        { init = model
         , view = T.view config
         , update = T.update
         }
